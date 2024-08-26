@@ -1,0 +1,13 @@
+<h3>Exemple de liste</h3>
+<mat-form-field>
+  <input matInput type="text" [ngModel]="nouvelElement()" (ngModelChange)="nouvelElement.set($event)">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="ajouterElement()"> Ajouter</button>
+<i>Votre liste comporte {{nombreElements()}} - éléments</i>
+
+<mat-list>
+  <span *ngFor="let item of maListe()">
+    <mat-list-item>{{item}}</mat-list-item>
+    <mat-divider></mat-divider>
+  </span>
+</mat-list>

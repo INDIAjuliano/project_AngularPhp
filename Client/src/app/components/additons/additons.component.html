@@ -1,0 +1,9 @@
+<h3>Exemple de somme</h3>
+<mat-form-field>
+  <input type="number" matInput [ngModel]="nbr1()" (ngModelChange)="nbr1.set($event)">
+</mat-form-field>
++
+<mat-form-field>
+  <input type="number" matInput [ngModel]="nbr2()" (ngModelChange)="nbr2.set($event)">
+</mat-form-field>
+= {{resultat()}}
