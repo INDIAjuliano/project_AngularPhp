@@ -12,6 +12,7 @@ import { AdditonsComponent } from './components/additons/additons.component';
 import { ListComponent } from './components/list/list.component';
 import { CalculComponent } from './components/calcul/calcul.component';
 import { CrudModule } from './crud/crud.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CrudModule } from './crud/crud.module';
     MatButtonModule,
     MatListModule,
     CrudModule,
+    HttpClientModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
