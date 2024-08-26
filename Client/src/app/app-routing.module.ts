@@ -12,10 +12,10 @@ const routes: Routes = [
     path: 'crud',
     loadChildren: () => import('./crud/crud.module').then((m) => m.CrudModule),
   },
-  // {
-  //   path: 'calcul',
-  //   component: CalculComponent,
-  // },
+  {
+    path: 'calcul',
+    component: CalculComponent,
+  },
 ];
 
 @NgModule({

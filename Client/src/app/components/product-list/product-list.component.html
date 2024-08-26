@@ -1,1 +1,23 @@
-<p>product-list works!</p>
+<div class="row">
+
+  <div class="col-12">
+    <ag-grid-angular class="ag-theme-quartz" style="width: 100%; height: 40em;" [rowData]="rowData"
+      [columnDefs]="colDefs">
+    </ag-grid-angular>
+    [gridOption] = "gridOption"
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="ag-theme-quartz">
+    <ag-grid-angular class="ag-theme-quartz" [rowData]="rowData" [columnDefs]="colDefs" />
+    [gridOption] = "gridOption"
+  </div>
+
+  <div class="col-12">
+    <ag-grid-angular class="ag-theme-quartz" style="width:800px;height:40em;" [rowData]="rowData"
+      [columnDefs]="colDefs">
+    </ag-grid-angular>
+    [gridOption] = "gridOption"
+  </div>
+</div> -->
