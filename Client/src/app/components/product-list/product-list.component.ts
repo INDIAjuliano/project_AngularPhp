@@ -5,6 +5,7 @@ import 'ag-grid-community/styles/ag-grid.css';
 /* Quartz Theme Specific CSS */
 import 'ag-grid-community/styles/ag-theme-quartz.css';
 import { CrudService } from '../../services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -15,8 +16,14 @@ export class ProductListComponent implements OnInit {
   productList: any = [];
   productListSubscirbe: any;
   rowData: any = [];
+  gridOptions = {
+    rowHeight: 50,
+  };
 
-  constructor(private crudService$: CrudService) {}
+  constructor(
+    private crudService$: CrudService,
+    private routerService$: Router
+  ) {}
   ngOnInit(): void {
     this.getProductList();
     console.log('res', this.getProductList());
@@ -51,8 +58,9 @@ export class ProductListComponent implements OnInit {
       field: '',
       headerName: 'Options',
       sortable: true,
+      width: 250,
       headerClass: 'header-cell',
-      cellRenderer: this.actionRender,
+      cellRenderer: this.actionRender.bind(this),
     },
   ];
 
@@ -73,6 +81,37 @@ export class ProductListComponent implements OnInit {
       '<button type="button" class="btn btn-danger">Delete</button>\n' +
       '<button type="button" class="btn btn-warning">Edit</button>\n';
     div.innerHTML = htmlCode;
+    // handle view button
+    let viewButton = div.querySelector('.btn-success');
+    viewButton?.addEventListener('click', () => {
+      this.viewProductDetails(params);
+    });
+    // handle edit button
+    let editButton = div.querySelector('.btn-warning');
+    editButton?.addEventListener('click', () => {
+      this.editProductDetails(params);
+    });
+    // handle delet button
+    let deleteButton = div.querySelector('.btn-danger');
+    deleteButton?.addEventListener('click', () => {
+      this.deletPoduct(params);
+    });
     return div;
+  }
+
+  viewProductDetails(params: any) {
+    // console.log('param', params);
+    this.routerService$.navigate([
+      '/crud/view-product-details/' + params.data.p_id,
+    ]);
+  }
+
+  editProductDetails(params: any) {
+    this.routerService$.navigate(['/crud/update-product/' + params.data.p_id]);
+  }
+
+  deletPoduct(params: any) {
+    //Will  see later
+    console.log('Supprimer');
   }
 }
