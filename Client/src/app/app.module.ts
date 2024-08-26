@@ -10,13 +10,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { AdditonsComponent } from './components/additons/additons.component';
 import { ListComponent } from './components/list/list.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { CreatProductComponent } from './components/creat-product/creat-product.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { ProductFormComponent } from './components/product-form/product-form.component';
+import { CalculComponent } from './components/calcul/calcul.component';
+import { CrudModule } from './crud/crud.module';
 
 @NgModule({
-  declarations: [AppComponent, AdditonsComponent, ListComponent, ProductListComponent, CreatProductComponent, ProductDetailsComponent, ProductFormComponent],
+  declarations: [
+    AppComponent,
+    AdditonsComponent,
+    ListComponent,
+    CalculComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +28,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     MatDividerModule, // component that allows for Material styling of a line separator with various orientation options.
     MatButtonModule,
     MatListModule,
+    CrudModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CalculComponent } from './components/calcul/calcul.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
     path: 'crud',
     loadChildren: () => import('./crud/crud.module').then((m) => m.CrudModule),
   },
+  // {
+  //   path: 'calcul',
+  //   component: CalculComponent,
+  // },
 ];
 
 @NgModule({
