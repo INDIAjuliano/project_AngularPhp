@@ -2,22 +2,56 @@
   <div class="form-group mb-3">
     <label for="product-name">Product Name</label>
     <input formControlName="name" type="text" class="form-control" id="product-name" aria-describedby="name"
-      placeholder="product name...">
-    <div class="alert alert-danger" role="alert"
+      placeholder="product name..." [ngClass]="{
+        'is-invalid': productForm.controls['name'].errors && productForm.controls['name'].touched,
+        'is-valid': !productForm.controls['name'].errors && productForm.controls['name'].touched
+      }">
+
+    <div *ngIf="productForm.controls['name'].errors && productForm.controls['name'].touched">
+      <span *ngIf="productForm.controls['name'].errors?.required"><code>Product Name is required</code></span>
+      <span *ngIf="productForm.controls['name'].errors?.minlength"><code>Name must contain at least 3
+        characters</code> </span>
+      <span *ngIf="productForm.controls['name'].errors?.maxlength">
+        <code>Product Name must be within 50 characters</code></span>
+    </div>
+
+    <!-- <div
       *ngIf="productForm.controls['name'].errors && productForm.controls['name'].touched">
       <span *ngIf="productForm.controls['name'].errors?.required">Product Name is required</span>
-      <span *ngIf="productForm.controls['name'].errors?.minLength">Product Name is contains 3 char length</span>
-      <span *ngIf="productForm.controls['name'].errors?.maxLength">Product Name is with in 50 char length</span>
-    </div>
+      <span *ngIf="productForm.controls['name'].errors?.minlength">Product Name must contain at least 3 characters</span>
+      <span *ngIf="productForm.controls['name'].errors?.maxlength">Product Name must be within 50 characters</span>
+    </div> -->
+
   </div>
   <div class="form-group mb-3">
     <label for="exempleInputDescription">Product Description</label>
-    <textarea formControlName="description" class="form-control" rows="5" style="width: 100%;"
-      placeholder="description"></textarea>
+    <textarea formControlName="description" class="form-control" rows="5" style="width: 100%;" placeholder="description"
+      [ngClass]="{
+        'is-invalid': productForm.controls['description'].errors && productForm.controls['description'].touched,
+        'is-valid': !productForm.controls['description'].errors && productForm.controls['description'].touched
+      }">
+      ></textarea>
+    <div *ngIf="productForm.controls['description'].errors && productForm.controls['description'].touched">
+      <span *ngIf="productForm.controls['description'].errors?.required"> <code>Description is required</code></span>
+      <span *ngIf="productForm.controls['description'].errors?.minlength"> <code>Description must contain at least 3
+        characters</code></span>
+      <span *ngIf="productForm.controls['description'].errors?.maxlength"> <code>Description must be within 50
+        characters</code></span>
+    </div>
   </div>
   <div class="form-group mb-3">
     <label for="price">Product price</label>
-    <input formControlName="price" type="number" class="form-control" id="price" placeholder="price">
+    <input formControlName="price" type="number" class="form-control" id="price" placeholder="price" [ngClass]="{
+      'is-invalid': productForm.controls['price'].errors && productForm.controls['price'].touched,
+      'is-valid': !productForm.controls['price'].errors && productForm.controls['price'].touched
+    }">
+    <div *ngIf="productForm.controls['price'].errors && productForm.controls['price'].touched">
+      <span *ngIf="productForm.controls['price'].errors?.required"><code> price is required</code></span>
+      <span *ngIf="productForm.controls['price'].errors?.minlength"> <code>price must contain at least 3
+        characters</code></span>
+      <span *ngIf="productForm.controls['price'].errors?.maxlength"><code> price must be within 50
+        characters</code></span>
+    </div>
   </div>
   <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
